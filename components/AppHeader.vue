@@ -14,7 +14,7 @@ function toggleDarkMode(theme) {
 </script>
 
 <template>
-  <header class="relative z-50">
+  <header class="fixed w-full z-50">
     <div class="px-[3.5%] pt-10 flex items-center justify-between">
       <div class="rc-logo">
         <a href="#">
