@@ -26,41 +26,6 @@
             <h1 class="text-white">HOLA</h1>
           </div>
         </div>
-        <!-- <div
-          class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
-        >
-          <transition
-            enter-active-class="transform transition ease-in-out duration-500"
-            enter-from-class="translate-x-full"
-            enter-to-class="translate-x-0"
-            leave-active-class="transform transition ease-in-out duration-500"
-            leave-from-class="translate-x-0"
-            leave-to-class="translate-x-full"
-          >
-            <div
-              v-if="show"
-              class="pointer-events-auto w-screen max-w-md relative"
-              ref="slideOver"
-            >
-              <div
-                class="absolute top-0 left-0 -ml-8 flex pt-2 pr-2 sm:-ml-10 sm:pr-4"
-              >
-                <button
-                  @click="close"
-                  type="button"
-                  class="rounded-md text-gray-100 focus:outline-none focus:ring-2 focus:ring-white h-8 w-8 flex items-center justify-center"
-                >
-                  <span class="sr-only">Close panel</span>
-
-                  <icon name="fluent:dismiss-24-filled" class="h-6 w-6" />
-                </button>
-              </div>
-              <div class="h-full overflow-y-scroll bg-white shadow-xl">
-                
-              </div>
-            </div>
-          </transition>
-        </div> -->
       </div>
     </div>
   </div>
