@@ -16,12 +16,17 @@
     >
       <div
         v-if="show"
-        class="fixed inset-0 bg-gray-700 bg-opacity-50 backdrop-blur-sm transition-opacity"
+        class="fixed inset-0 bg-primary/50 bg-opacity-50 backdrop-blur-md transition-opacity"
       ></div>
     </transition>
     <div class="fixed inset-0 overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
-        <div
+        <div class="container mx-auto">
+          <div class="py-[120px] pl-[5%] pr-[140px]">
+            <h1 class="text-white">HOLA</h1>
+          </div>
+        </div>
+        <!-- <div
           class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
         >
           <transition
@@ -51,26 +56,11 @@
                 </button>
               </div>
               <div class="h-full overflow-y-scroll bg-white shadow-xl">
-                <!-- The Feed iframe goes here -->
-                <div
-                  v-if="!iframeLoaded"
-                  class="h-full w-full flex items-center justify-center flex-col space-y-2 text-slate-700"
-                >
-                  <base-spinner class="h-5 w-5" />
-                  <p>Loading Feed</p>
-                </div>
-                <iframe
-                  src="/widget"
-                  class="h-full w-full"
-                  :class="iframeLoaded ? 'opacity-100' : 'opacity-0'"
-                  frameborder="0"
-                  @load="iframeLoaded = true"
-                ></iframe>
-                <!-- The Feed iframe goes here -->
+                
               </div>
             </div>
           </transition>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

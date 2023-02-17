@@ -1,5 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  content: [
+    `./components/**/*.{vue,js}`,
+    `./layouts/**/*.vue`,
+    `./pages/**/*.vue`,
+    `./composables/**/*.{js,ts}`,
+    `./plugins/**/*.{js,ts}`,
+    `./App.{js,ts,vue}`,
+    `./app.{js,ts,vue}`,
+  ],
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: [
@@ -32,18 +42,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#0ea5e9",
+        'primary': '#161519',
+        'primary-shade': '#131216',
+        'primary-tint': '#2d2c30',
+        'secondary': '#49da94',
+        'secondary-shade': '#40c082',
+        'secondary-tint': '#5bde9f',
       },
     },
   },
   plugins: [require("@tailwindcss/typography")],
-  content: [
-    `components/**/*.{vue,js}`,
-    `layouts/**/*.vue`,
-    `pages/**/*.vue`,
-    `composables/**/*.{js,ts}`,
-    `plugins/**/*.{js,ts}`,
-    `App.{js,ts,vue}`,
-    `app.{js,ts,vue}`,
-  ],
 };
