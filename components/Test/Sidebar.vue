@@ -1,8 +1,11 @@
 <script setup>
-const emit = defineEmits(["close"]);
 import { ref } from "vue";
+
+const emit = defineEmits(["close"]);
+
 const show = ref(false);
 const iframeLoaded = ref(false);
+
 function close() {
   show.value = false;
   setTimeout(() => {
@@ -10,8 +13,10 @@ function close() {
     emit("close");
   }, 500);
 }
+
 const slideOver = ref(null);
 useClickOutside(slideOver, () => close());
+
 onMounted(() => {
   show.value = true;
   document.body.style.setProperty("overflow", "hidden");
@@ -43,12 +48,9 @@ onMounted(() => {
       <div class="absolute inset-0 overflow-hidden">
         <div class="container mx-auto h-full">
           <div
-            class="py-[120px] pl-[5%] pr-[140px] h-full flex items-center justify-between"
+            class="pt-[40%] pb-[35%] px-4 md:py-[120px] md:pl-[5%] md:pr-[140px] h-full flex md:items-center flex-col md:flex-row md:justify-between"
           >
-            <div class="max-w-xl">
-              <h1 class="text-primary dark:text-white font-bold text-6xl mb-8">
-                Sobre mi
-              </h1>
+            <div class="w-full md:max-w-xl">
               <ContentTitle title="Sobre mi" />
               <p class="text-primary dark:text-white text-xl">
                 Técnico en computación e informática, con 8 años de experiencia
@@ -57,13 +59,13 @@ onMounted(() => {
                 en los productos desarrollados. Experiencia en diseño UX/UI.
               </p>
             </div>
-            <div>
+            <div class="mt-14 md:mt-0">
               <div
                 class="text-primary dark:text-white text-2xl font-semibold tracking-wide mb-7"
               >
                 Social Links:
               </div>
-              <ul class="rc-social-nav text-right">
+              <ul class="rc-social-nav md:text-right">
                 <li>
                   <a
                     href="#"
