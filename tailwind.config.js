@@ -13,6 +13,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Syne', 'sans-serif'],
+      'poppins': ['Poppins', 'sans-serif'],
     },
     extend: {
       colors: {
@@ -22,6 +23,7 @@ module.exports = {
         'secondary': '#49da94',
         'secondary-shade': '#40c082',
         'secondary-tint': '#5bde9f',
+        'grey': '#69686D',
       },
     },
   },
