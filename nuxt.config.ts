@@ -7,6 +7,9 @@ export default ({
         '@nuxtjs/color-mode',
         '@nuxt/image-edge',
     ],
+    build: {
+        transpile: ['gsap'],
+    },
     content: {
         highlight: {
             theme: 'nord',

@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { gsap } from "gsap";
 
 const emit = defineEmits(["close"]);
 
 const show = ref(false);
-const iframeLoaded = ref(false);
 
 function close() {
   show.value = false;
@@ -15,11 +15,40 @@ function close() {
 }
 
 const slideOver = ref(null);
-useClickOutside(slideOver, () => close());
+// useClickOutside(slideOver, () => close());
+
+// GSAP animation
+const main = ref();
+const tl = ref();
+const ctx = ref();
+
+const triggerGsapAnim = () => {
+  tl.value.reversed(!tl.value.reversed());
+};
 
 onMounted(() => {
   show.value = true;
   document.body.style.setProperty("overflow", "hidden");
+
+  ctx.value = gsap.context(() => {
+    tl.value = gsap
+      .timeline()
+      .fromTo(
+        ".title",
+        { y: 80, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: "expo.out" }
+      )
+      .fromTo(
+        ".content",
+        { y: 80, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: "expo.out" }
+      )
+      .reverse();
+  }, main.value); // <- Scope!
+});
+
+onUnmounted(() => {
+  ctx.value.revert(); // <- Easy Cleanup!
 });
 </script>
 
@@ -52,7 +81,7 @@ onMounted(() => {
           >
             <div class="w-full md:max-w-xl">
               <ContentTitle title="Sobre mi" />
-              <p class="text-primary dark:text-white text-xl">
+              <p class="content text-primary dark:text-white text-xl">
                 Técnico en computación e informática, con 8 años de experiencia
                 en desarrollo web. Detallista, creativo y meticuloso al momento
                 de abordar un proyecto. Apasionado por el diseño y creatividad
@@ -60,6 +89,7 @@ onMounted(() => {
               </p>
             </div>
             <div class="mt-14 md:mt-0">
+              <button @click="triggerGsapAnim">Trigger</button>
               <div
                 class="text-primary dark:text-white text-2xl font-semibold tracking-wide mb-7"
               >
