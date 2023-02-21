@@ -29,7 +29,11 @@ function toggleDarkMode(theme) {
       <div class="rc-menu">
         <div class="rc-menu-toggle-btn">
           <button
-            @click="sidebar = true"
+            @click="
+              {
+                sidebar ? (sidebar = false) : (sidebar = true);
+              }
+            "
             :class="{ 'rc-menu-open': sidebar }"
             class="rc-menu-toggle-btn flex items-center justify-between"
           >
