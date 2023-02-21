@@ -1,9 +1,9 @@
 <template>
   <div>
-    <AppHeader />
-    <main class="grid w-full min-h-screen relative">
+    <Hero />
+    <!-- <main class="w-full min-h-screen relative">
       <slot />
-    </main>
+    </main> -->
     <!--Footer -->
   </div>
 </template>
