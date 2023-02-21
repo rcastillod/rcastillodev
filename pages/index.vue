@@ -24,12 +24,5 @@ const { data } = await useAsyncData("feed", () =>
 );
 </script>
 <template>
-  <main class="min-h-screen relative">
-    <hero />
-    <section
-      class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 overflow-hidden"
-    >
-      <post v-for="post in data" :content="post" />
-    </section>
-  </main>
+  <div>HOLA</div>
 </template>

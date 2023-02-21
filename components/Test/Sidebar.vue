@@ -14,17 +14,10 @@ function close() {
   }, 500);
 }
 
-const slideOver = ref(null);
-// useClickOutside(slideOver, () => close());
-
 // GSAP animation
 const main = ref();
 const tl = ref();
 const ctx = ref();
-
-const triggerGsapAnim = () => {
-  tl.value.reversed(!tl.value.reversed());
-};
 
 onMounted(() => {
   show.value = true;
@@ -36,14 +29,14 @@ onMounted(() => {
       .fromTo(
         ".title",
         { y: 80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, ease: "expo.out" }
+        { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }
       )
       .fromTo(
         ".content",
         { y: 80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, ease: "expo.out" }
-      )
-      .reverse();
+        { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" },
+        "<.1"
+      );
   }, main.value); // <- Scope!
 });
 
@@ -60,19 +53,10 @@ onUnmounted(() => {
     role="dialog"
     aria-modal="true"
   >
-    <transition
-      enter-active-class="ease-in-out duration-500"
-      enter-from-class="opacity-0"
-      enter-to-class="opacity-100"
-      leave-active-class="ease-in-out duration-500"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
-      <div
-        v-if="show"
-        class="fixed inset-0 bg-primary/50 bg-opacity-50 backdrop-blur-md transition-opacity"
-      ></div>
-    </transition>
+    <div
+      v-if="show"
+      class="fixed inset-0 bg-primary/50 bg-opacity-50 backdrop-blur-md transition-opacity"
+    ></div>
     <div class="fixed inset-0 overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
         <div class="container mx-auto h-full">
@@ -89,7 +73,6 @@ onUnmounted(() => {
               </p>
             </div>
             <div class="mt-14 md:mt-0">
-              <button @click="triggerGsapAnim">Trigger</button>
               <div
                 class="text-primary dark:text-white text-2xl font-semibold tracking-wide mb-7"
               >

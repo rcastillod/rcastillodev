@@ -1,7 +1,7 @@
 <template>
   <div>
     <AppHeader />
-    <main>
+    <main class="grid w-full min-h-screen relative">
       <slot />
     </main>
     <!--Footer -->
