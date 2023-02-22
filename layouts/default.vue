@@ -1,9 +1,9 @@
 <template>
   <div>
     <Hero />
-    <!-- <main class="w-full min-h-screen relative">
+    <main class="w-full relative">
       <slot />
-    </main> -->
+    </main>
     <!--Footer -->
   </div>
 </template>

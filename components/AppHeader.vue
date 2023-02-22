@@ -114,8 +114,8 @@ onUnmounted(() => {
   <!-- Header -->
   <header class="header">
     <!-- Header top -->
-    <div class="header__top flex items-center justify-between rounded-full">
-      <div class="logo">
+    <div class="header__top flex items-center justify-between">
+      <div class="logo -mt-1">
         <a href="#">
           <nuxt-img
             v-if="$colorMode.preference === 'dark'"
@@ -157,18 +157,21 @@ onUnmounted(() => {
 .cover__inner {
   will-change: transform;
 }
+
 .cover-wrap {
   pointer-events: none;
   z-index: 100;
   grid-area: 1 / 1 / 2 / 2;
   display: grid;
 }
+
 .cover {
   grid-area: 1 / 1 / 2 / 2;
   display: grid;
   overflow: hidden;
   transform: translateY(-100%);
 }
+
 .cover__inner {
   background-image: url(../public/cover-bg.jpg);
   background-position: 50%;
@@ -178,40 +181,34 @@ onUnmounted(() => {
 
 /* Header */
 .header {
-  grid-template-rows: 4rem 1fr;
+  grid-template-rows: 6rem 1fr;
   grid-template-areas:
     "top"
     "content";
   display: grid;
   opacity: 0.9;
-  position: absolute;
-  inset: 1rem;
+  position: fixed;
+  inset: 0;
   z-index: 100;
-}
-
-@media screen and (min-width: 55.5em) {
-  .header {
-    inset: 2rem 3rem;
-  }
 }
 
 /* Header top */
 .header__top {
-  @apply bg-primary;
+  @apply px-6 md:px-16;
   pointer-events: auto;
   z-index: 100;
-  padding: 0 2rem;
   grid-area: top;
 }
+
 .header__content-wrap {
   grid-area: content;
-  margin-top: -1.35rem;
+  margin-top: -6rem;
   overflow: hidden;
 }
+
 .header__content {
   @apply bg-primary;
   height: 100%;
-  border-radius: 0 0 20px 20px;
   will-change: transform;
   padding-bottom: 1rem;
   display: grid;
@@ -222,20 +219,30 @@ onUnmounted(() => {
 
 /* Header social */
 .header__social {
+  align-items: center;
   display: flex;
-  gap: 3.125em;
+  flex-direction: column;
+  gap: 1.875em;
 }
+
+@media (min-width: 768px) {
+  .header__social {
+    flex-direction: row;
+    gap: 3.125em;
+  }
+}
+
 .header__social a {
-  font-size: clamp(38px, 6vw, 112px);
+  font-size: clamp(2.375rem, 7vw, 7rem);
   position: relative;
   margin: 0;
-  font-size: clamp(38px, 5vw, 82px);
   font-weight: bold;
   font-weight: 600;
   color: #fff;
   line-height: 1.2;
   z-index: 9;
 }
+
 .header__social a::before {
   @apply bg-secondary;
   content: "";
@@ -248,9 +255,11 @@ onUnmounted(() => {
   z-index: -1;
   transition: width 0.3s ease-in-out;
 }
+
 .header__social a:is(:hover, :focus)::before {
   width: 100%;
 }
+
 .header__social a.text-stroke {
   font-weight: bold;
   font-weight: 700;
@@ -263,9 +272,9 @@ onUnmounted(() => {
 /* Menu toggle */
 .menu__toggle-btn {
   position: relative;
-  width: 7.5rem;
-  height: 3.125rem;
+  gap: 2.1875rem;
 }
+
 .menu__toggle-btn span {
   position: relative;
   display: block;
@@ -275,6 +284,7 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   transition: all 0.2s ease-in-out;
 }
+
 .menu__toggle-btn span::before,
 .menu__toggle-btn span::after {
   position: absolute;
@@ -284,21 +294,25 @@ onUnmounted(() => {
   background-color: #fff;
   transition: all 0.2s ease-in-out;
 }
+
 .menu__toggle-btn span::before {
   top: -4px;
   width: 1.25rem;
 }
+
 .menu__toggle-btn span::after {
   top: auto;
   bottom: -4px;
   right: 0;
   width: 0.875rem;
 }
+
 .menu__toggle-btn.menu__open span::before {
   top: 0;
   width: 20px;
   transform: rotate(45deg);
 }
+
 .menu__toggle-btn.menu__open span::after {
   bottom: 0;
   width: 20px;
