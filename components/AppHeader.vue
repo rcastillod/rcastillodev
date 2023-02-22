@@ -16,6 +16,7 @@ const isOpen = ref(false);
 
 const toggleTimeline = () => {
   isOpen.value = !isOpen.value;
+  document.body.classList.toggle("menu__open");
   tl.value.reversed(!tl.value.reversed());
 };
 
@@ -173,7 +174,7 @@ onUnmounted(() => {
 }
 
 .cover__inner {
-  background-image: url(../public/cover-bg.jpg);
+  background-image: url(/cover-bg.jpg);
   background-position: 50%;
   background-size: cover;
   transform: translateY(100%);

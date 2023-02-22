@@ -29,4 +29,7 @@ body {
 body {
   @apply dark:bg-primary relative;
 }
+body.menu__open {
+  overflow: hidden;
+}
 </style>
