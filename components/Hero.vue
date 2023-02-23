@@ -15,6 +15,13 @@
           </div>
         </h1>
       </div>
+      <div class="content__caption-background">
+        <div class="content__caption-background-title">
+          <span class="text">Development</span>
+          <span class="text">Design</span>
+          <span class="text">Creativity</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,7 +32,10 @@
   grid-area: 1 / 1 / 2 / 2;
   place-items: center;
   padding-inline: 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
+
 .content__caption-title {
   font-size: clamp(2.25rem, 7vw, 7rem);
   position: relative;
@@ -43,5 +53,25 @@
     flex-wrap: wrap;
     gap: 0.625rem;
   }
+}
+
+/* Content background title */
+.content__caption-background {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 6%;
+  padding-top: 5%;
+  font-size: calc(1rem + 19.5vw);
+  font-weight: bold;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  line-height: 1;
+  opacity: 0.1;
+  z-index: 1;
+  pointer-events: none;
 }
 </style>
